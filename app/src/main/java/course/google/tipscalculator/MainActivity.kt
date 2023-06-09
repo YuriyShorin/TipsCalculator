@@ -73,48 +73,48 @@ fun TipsCalculatorApp() {
         )
         Spacer(modifier = Modifier.height(15.dp))
         EditNumberField(
-            value = amountInput,
-            onValueChange = { amountInput = it },
-            text = stringResource(R.string.bill_amount),
             modifier = Modifier
                 .height(55.dp)
-                .width(310.dp)
+                .width(310.dp),
+            value = amountInput,
+            onValueChange = { amountInput = it },
+            text = stringResource(R.string.bill_amount)
         )
         Spacer(modifier = Modifier.height(20.dp))
         Row(modifier = Modifier.padding(start = 30.dp, end = 30.dp)) {
             Button(
+                modifier = Modifier
+                    .height(55.dp)
+                    .width(55.dp),
                 onClick = {
                     percentage--
                     percentageInput = percentage.toString()
                 },
                 shape = RoundedCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(colorResource(R.color.ghost)),
-                border = ButtonDefaults.outlinedButtonBorder,
-                modifier = Modifier
-                    .height(55.dp)
-                    .width(55.dp)
+                border = ButtonDefaults.outlinedButtonBorder
             ) {
                 Text(text = "-")
             }
             EditNumberField(
-                value = percentageInput,
-                onValueChange = { percentageInput = it },
-                text = stringResource(R.string.percentage),
                 modifier = Modifier
                     .height(55.dp)
-                    .width(200.dp)
+                    .width(200.dp),
+                value = percentageInput,
+                onValueChange = { percentageInput = it },
+                text = stringResource(R.string.percentage)
             )
             Button(
+                modifier = Modifier
+                    .height(55.dp)
+                    .width(55.dp),
                 onClick = {
                     percentage++
                     percentageInput = percentage.toString()
                 },
                 shape = RoundedCornerShape(0.dp),
                 colors = ButtonDefaults.buttonColors(colorResource(R.color.ghost)),
-                border = ButtonDefaults.outlinedButtonBorder,
-                modifier = Modifier
-                    .height(55.dp)
-                    .width(55.dp)
+                border = ButtonDefaults.outlinedButtonBorder
             ) {
                 Text(text = "+")
             }
@@ -137,13 +137,13 @@ fun EditNumberField(
     modifier: Modifier
 ) {
     TextField(
+        modifier = modifier,
         value = value,
         onValueChange = onValueChange,
         singleLine = true,
         label = { Text(text = text, style = MaterialTheme.typography.bodyMedium) },
         textStyle = MaterialTheme.typography.titleMedium,
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-        modifier = modifier
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
 }
 
